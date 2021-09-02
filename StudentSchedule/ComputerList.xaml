@@ -1,0 +1,42 @@
+﻿<Page x:Class="Comp.ComputerList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Comp"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ComputerList">
+
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ListView ItemsSource="{Binding Computers}" SelectedItem="{Binding SelectedComputer}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Ip" DisplayMemberBinding="{Binding Ip}"/>
+                    <GridViewColumn Header="Mac" DisplayMemberBinding="{Binding Mac_adres}"/>
+                    <GridViewColumn Header="домен" DisplayMemberBinding="{Binding DomenName}"/>
+                    <GridViewColumn Header="инвент" DisplayMemberBinding="{Binding InventoryId}"/>
+                    <GridViewColumn Header="идент" DisplayMemberBinding="{Binding GroupId}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Создать" Command="{Binding CreateComputer}" Margin="0 5 5 0" Grid.Column="0"/>
+            <Button Content="Редактировать" Command="{Binding EditComputer}" Margin="0 5 5 0" Grid.Column="2"/>
+            <Button Content="Удалить" Command="{Binding RemoveComputer}" Margin="0 5 5 0" Grid.Column="4"/>
+        </Grid>
+    </Grid>
+</Page>
